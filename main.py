@@ -1,8 +1,8 @@
 import time
 import csv
-#import re - for if regex use was allowed 
+import re
 
-#emailRegex = '(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)' - for if regex use was allowed
+emailRegex = '(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
 
 class child:
   def __init__(self, lName, fName, DoB, gender, ethnicity, yearLvl):
@@ -22,39 +22,8 @@ class parent:
     self.wrkPhone = wrkPhone
     self.email = email #amended
 
-  """"
-  Wasn't sure if we were allowed to just use regex.
   def emailCheck(self):
     if(re.search(emailRegex, self.email)):
-      print(self.fName + " " + self.lName + " has a valid email")
-    else:
-      print(self.fName + " " + self.lName + " has an invalid email")
-  """
-
-  def emailCheck(self):
-    count = 0
-    valid = False
-    for element in range (count, len(self.email)):
-      value = self.email[count]
-      if (count < 3 and value == "@" or value == " "):
-        break
-      if (count >= 3 and value == "@"):
-        valid = True
-        count += 1
-        break
-      count += 1
-    #perform different checks once first @ is found
-    if (valid == True):
-      valid = False
-      halfCount = count
-      for element in range (count, len(self.email)):
-        value = self.email[count]
-        if (value == "@" or value == " "):
-          break
-        if (count > (halfCount + 2) and value == "."):
-          valid = True
-        count += 1
-    if (valid == True):
       print(self.fName + " " + self.lName + " has a valid email")
     else:
       print(self.fName + " " + self.lName + " has an invalid email")
